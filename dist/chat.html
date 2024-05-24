@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-[#FFFFFF] flex flex-col items-center justify-center h-screen px-5"
+  >
+    <!--Heder-->
+
+    <div id="header"></div>
+
+    <div class="w-full flex flex-col justify-between h-full max-h-screen">
+      <!-- User Info -->
+      <div class="pt-28 pb-4">
+        <div class="border-b-4 border-t-4 pt-2 pb-2 px-2">
+          <p><strong class="font-semibold">Name:</strong> Stein</p>
+          <p><strong class="font-semibold">Started:</strong> 0 Minutes Ago</p>
+          <p><strong class="font-semibold">Status:</strong> Active</p>
+          <p>
+            <strong class="font-semibold">Page:</strong>
+            <a
+              href="http://127.0.0.1:8002/"
+              class="text-blue-600 hover:underline"
+              >http://127.0.0.1:8002/</a
+            >
+          </p>
+          <p><strong class="font-semibold">Agent:</strong> Stein Ove</p>
+        </div>
+      </div>
+
+      <!-- Chat Messages -->
+      <div
+        class="bg-[#F3F5F7] p-4 flex flex-col space-y-4 overflow-y-auto h-full rounded-3xl pt-5"
+      >
+        <div class="flex items-start space-x-2">
+          <div
+            class="flex-shrink-0 bg-[#D9D9D9] rounded-full h-8 w-8 flex items-center justify-center"
+          >
+            <span class="text-[#000000] font-semibold">S</span>
+          </div>
+          <div
+            class="bg-[#D4D7D8] p-2 rounded-t-none rounded-r-lg rounded-b-lg rounded-l-lg"
+          >
+            <p class="typing-indicator font-semibold">
+              Stein is writing a message...
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-2">
+          <div
+            class="flex-shrink-0 bg-[#D9D9D9] rounded-full h-8 w-8 flex items-center justify-center"
+          >
+            <span class="text-[#000000] font-semibold">S</span>
+          </div>
+          <div>
+            <div
+              class="bg-[#D4D7D8] p-2 rounded-t-none rounded-r-lg rounded-b-lg rounded-l-lg"
+            >
+              <p class="font-semibold">Hello!</p>
+            </div>
+            <span class="text-[#8F8F8F] text-xs font-semibold"
+              >0 minutes ago</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Message Input -->
+      <div class="pt-4">
+        <div class="py-4 border-t-4 flex items-center space-x-2">
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Type Your Message...."
+            class="bg-[#F3F5F7] flex-grow px-4 py-2 border rounded-lg focus:outline-none font-semibold"
+          />
+        </div>
+        <div class="pb-2">
+          <button
+            onclick="sendMessage()"
+            class="bg-[#DA314D] text-white px-10 py-2 rounded-lg font-semibold"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./scripts.js">
+      function sendMessage() {
+          const messageInput = document.getElementById("messageInput");
+          const messageText = messageInput.value.trim();
+
+          if (messageText) {
+              const chatContainer = document.querySelector(".p-4.flex.flex-col.space-y-4");
+
+              const messageElement = document.createElement("div");
+              messageElement.classList.add("flex", "items-start", "space-x-2");
+
+              messageElement.innerHTML = `
+                  <div class="flex-shrink-0 bg-gray-200 rounded-full h-8 w-8 flex items-center justify-center">
+                      <span class="text-gray-700">S</span>
+                  </div>
+                  <div class="bg-gray-100 p-2 rounded-lg">
+                      <p>${messageText}</p>
+                      <span class="text-gray-500 text-xs">0 minutes ago</span>
+                  </div>
+              `;
+
+              chatContainer.appendChild(messageElement);
+
+              messageInput.value = "";
+          }
+      }
+    </script>
+  </body>
+</html>
