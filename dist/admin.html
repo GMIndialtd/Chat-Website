@@ -3,26 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jatte Admin</title>
+    <title>GMI Chat Admin</title>
     <link rel="stylesheet" href="../src/output.css" />
-    <style>
-      @media screen and (max-width: 768px) {
-        /* Styles for mobile view */
-        .table-container {
-          overflow-x: auto;
-          width: 100%;
-        }
-      }
-    </style>
   </head>
-  <body class="bg-white flex flex-col min-h-screen pt-10">
+  <body class="bg-white pt-10">
     <!-- Include header -->
     <div id="header"></div>
 
     <!-- Main Content -->
-    <main class="container mx-auto flex-grow pl-5 pt-5">
-      <div id="adminSection" class="text-left pl-5">
-        <!--user-->
+    <main class="container mx-auto flex-grow px-6 pt-5">
+      <div id="adminSection" class="text-left">
+        <!-- User Section -->
         <h1 class="text-2xl font-bold mb-4 mt-10">Admin</h1>
         <div>
           <h2 class="text-xl font-semibold pt-4">Users</h2>
@@ -34,59 +25,76 @@
             <a href="./add.html">Add User</a>
           </button>
         </div>
-       <div class="mb-6 overflow-x-auto">
-          <div class="table-container pr-10">
-            <table class="min-w-full divide-y divide-gray-200">
-              <tbody>
-                <tr class="border-b shadow-md bg-gray-100">
-                  <td class="px-6 py-4">Admin Manager</td>
-                  <td class="px-6 py-4">admin@jatte.com</td>
-                  <td class="px-6 py-4">Manager</td>
-                  <td class="px-6 py-4">
-                    <button
-                      class="text-blue-600 hover:underline"
-                      onclick="scrollToEdit(this)"
-                    >
-                      <a href="./edit.html">Edit</a>
-                    </button>
-                  </td>
-                </tr>
-                <tr class="border-b bg-white">
-                  <td class="px-6 py-4">John Doe</td>
-                  <td class="px-6 py-4">johndoe@jatte.com</td>
-                  <td class="px-6 py-4">Agent</td>
-                  <td class="px-6 py-4">
-                    <button
-                      class="text-blue-600 hover:underline"
-                      onclick="scrollToEdit(this)"
-                    >
-                      <a href="./edit.html">Edit</a>
-                    </button>
-                  </td>
-                </tr>
-                <tr class="border-b shadow-md bg-gray-100">
-                  <td class="px-6 py-4">Stein Ove</td>
-                  <td class="px-6 py-4">stein@jatte.com</td>
-                  <td class="px-6 py-4">Agent</td>
-                  <td class="px-6 py-4">
-                    <button
-                      class="text-blue-600 hover:underline"
-                      onclick="scrollToEdit(this)"
-                    >
-                      <a href="./edit.html">Edit</a>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
+        <!-- Users Table -->
+        <div class="overflow-x-auto bg-red-700">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-200">
+              <tr class="border-b">
+                <th
+                  class="px-6 text-left font-medium text-gray-500 uppercase"
+                >
+                  Name
+                </th>
+                <th
+                  class="px-6 text-left font-medium text-gray-500 uppercase"
+                >
+                  Email
+                </th>
+                <th
+                  class="px-6 py-4 text-left font-medium text-gray-500 uppercase"
+                >
+                  Role
+                </th>
+                <th
+                  class="px-6 py-4 text-left font-medium text-gray-500 uppercase"
+                >
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b even:bg-[#FFFFFF] odd:bg-[#F2F4F5]">
+                <td class="px-6 py-2">Admin Manager</td>
+                <td class="px-6 py-2">admin@gmindia.tech</td>
+                <td class="px-6 py-2">Manager</td>
+                <td class="px-6 py-2">
+                  <button class="text-blue-600 hover:underline">
+                    <a href="./edit.html">Edit</a>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b even:bg-[#FFFFFF] odd:bg-[#F2F4F5]">
+                <td class="px-6 py-2">John Doe</td>
+                <td class="px-6 py-2">johndoe@gmindia.tech</td>
+                <td class="px-6 py-2">Agent</td>
+                <td class="px-6 py-2">
+                  <button class="text-blue-600 hover:underline">
+                    <a href="./edit.html">Edit</a>
+                  </button>
+                </td>
+              </tr>
+              <tr class="border-b even:bg-[#FFFFFF] odd:bg-[#F2F4F5]">
+                <td class="px-6">Stein Ove</td>
+                <td class="px-6">stein@gmindia.tech</td>
+                <td class="px-6">Agent</td>
+                <td class="px-6 py-2">
+                  <button class="text-blue-600 hover:underline">
+                    <a href="./edit.html">Edit</a>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <!-- Rooms Section -->
-        <div class="py-4"><h1 class="text-[#000000] font-semibold text-[32px]">Rooms</h1></div>
-        <div class="w-64">
+        <div class="py-4">
+          <h1 class="text-[#000000] font-semibold text-[32px]">Rooms</h1>
+        </div>
+        <div class="w-full md:w-64">
           <div class="bg-[#D8F2E4] p-4 rounded-lg">
-            <h2 class="text-xl font-semibold mb-2 text-[#000000] pl-2.5 text-[30px]">
+            <h2 class="text-xl font-semibold mb-2 text-[#000000] text-[30px]">
               Chat
             </h2>
             <div class="pb-2">
@@ -100,16 +108,17 @@
                 <button
                   class="bg-[#285D46] text-[#FFFFFF] px-4 py-2 rounded-md mr-2"
                 >
-                  Join
+                  <a href="./chat.html">Join</a>
                 </button>
-                <button class="bg-[#E3343F] text-[#FFFFFF] px-4 py-2 rounded-md">
+                <button
+                  class="bg-[#E3343F] text-[#FFFFFF] px-4 py-2 rounded-md"
+                >
                   Delete
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </main>
 
